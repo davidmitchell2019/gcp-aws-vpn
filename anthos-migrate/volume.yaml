@@ -1,0 +1,17 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: test
+  annotations:
+    # Replace vlsVmId with application's VM ID
+    pvc.csi.kubernetes.io/vlsVmId: i-021d451cf7c961709
+    pvc.csi.kubernetes.io/vlsVmDataAccessMode: "Streaming"
+    pvc.csi.kubernetes.io/vlsRunMode: "Normal"
+spec:
+  accessModes:
+  - ReadWriteOnce
+  # Replace with your Storage Class name defined when adding Migrate for Anthos to your cluster.
+  storageClassName: csi-vlsdisk-sc04
+  resources:
+    requests:
+      storage: 1Gi

@@ -1,0 +1,13 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1beta1
+metadata:
+  name: csi-vlsdisk-sc01
+provisioner: com.google.csi.vlsdisk
+parameters:
+  type: streaming
+  # Replace the following with values from your configuration.
+  csi.storage.k8s.io/provisioner-secret-name: "mysecret"
+  csi.storage.k8s.io/provisioner-secret-namespace: "default"
+  csi.storage.k8s.io/controller-publish-secret-name: "mysecret"
+  csi.storage.k8s.io/controller-publish-secret-namespace: "default"
+  cloud-details: "anthos"
