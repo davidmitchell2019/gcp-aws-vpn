@@ -7,7 +7,7 @@ variable aws_region {
 }
 variable aws_instance_type {
   description = "Machine Type. Includes 'Enhanced Networking' via ENA."
-  default = "r4.2xlarge"
+  default = "t2.medium"
 }
 variable aws_disk_image {
   description = "Boot disk for gcp_instance_type."
@@ -24,4 +24,8 @@ variable aws_subnet1_cidr {
 variable aws_vm_address {
   description = "Private IP address for AWS VM instance."
   default = "172.16.0.100"
+}
+variable aws_vm_address2 {
+  description = "Private IP address for AWS VM instance to migrate."
+  default = "172.16.0.101"
 }

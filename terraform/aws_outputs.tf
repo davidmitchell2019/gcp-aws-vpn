@@ -7,3 +7,6 @@ output "aws_instance_external_ip" {
 output "aws_instance_internal_ip" {
   value = "${aws_instance.aws-vm.private_ip}"
 }
+output "aws_instance_internal_ip2" {
+  value = "${aws_instance.aws-vm2.private_ip}"
+}

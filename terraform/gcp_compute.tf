@@ -10,7 +10,7 @@ resource "google_compute_address" "gcp-ip" {
   region = "${var.gcp_region}"
 }
 resource "google_compute_instance" "gcp-vm" {
-  name         = "gcp-vm-${var.gcp_region}"
+  name         = "vpn-tunnel-bastion"
   machine_type = "${var.gcp_instance_type}"
   zone         = "${data.google_compute_zones.available.names[0]}"
 
@@ -19,6 +19,8 @@ resource "google_compute_instance" "gcp-vm" {
       image = "${var.gcp_disk_image}"
     }
   }
+
+  tags = ["name", "vpntunnelbastion"]
 
   network_interface {
     subnetwork = "${google_compute_subnetwork.gcp-subnet1.name}"
